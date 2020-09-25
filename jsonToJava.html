@@ -1,0 +1,115 @@
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <style>
+        textarea {
+            background: url(http://i.imgur.com/2cOaJ.png) no-repeat local;
+            padding-left: 35px;
+            padding-top: 10px;
+            border-color: #ccc;
+        }
+
+        #container {
+            display: flex;
+            flex-direction: row;
+        }
+
+        p{
+            margin : 1px;
+        }
+
+        #left {
+            flex-direction: column;
+            align-items: flex-start;
+            flex:1;
+        }
+
+        #right {
+            flex-direction: row;
+            align-items: flex-start;
+            justify-content: flex-start;
+            flex:2;
+        }
+
+        .monoFlex {
+            display:inline-flex;
+            flex-direction: column;
+        }
+
+    </style>
+    <script src="pluralize.js"></script>
+    <script src="converter.js"></script>
+</head>
+<body>
+<div id="container">
+    <div id="left">
+        <div>
+            <label for="mainName">main POJO name</label>
+            <input type="text" name="mainName" id="mainName" value="main">
+
+            <label for="language">JSON language</label>
+            <select id="language" name="language" size="1">
+                <option value="EN">EN</option>
+            </select>
+            <button type="button" onclick="convert()"> Convert</button>
+        </div>
+
+        <div>
+            <textarea id="json" name="story"
+                      rows="30" cols="60">
+                  [
+          {
+            "id": "5e4e42156fe9056cfb00252",
+            "name": "Project",
+            "hourlyRate": null,
+            "clientId": "",
+            "workspaceId": "5e4e38caq7668c16662b303a",
+            "billable": true,
+            "memberships": [
+               {
+                   "userId": "5a0ab5acb2d987125438b60f",
+                   "hourlyRate": null,
+                   "targetId": "5e4e38f156fe9056cfb00252",
+                   "membershipType": "PROJECT",
+                   "membershipStatus": "ACTIVE"
+               }
+            ],
+           "color": "#4CAF50",
+           "estimate": {
+               "estimate":  "PT0S",
+               "type":  "AUTO"
+            },
+            "archived": false,
+            "duration": "PT0S",
+            "clientName": "",
+            "note": "",
+            "template": false,
+            "public": false
+          }
+        ]
+        </textarea>
+        </div>
+
+    </div>
+
+    <div id="right">
+        <div class="monoFlex" >
+            <p>POJOS</p>
+            <p><label for="pojos"></label><textarea readonly id="pojos" name="pojos" rows="30" cols="60"></textarea></p>
+        </div>
+
+        <div class="monoFlex">
+            <p>FIELDS DEF.</p>
+            <p><label for="fieldsDef"></label><textarea readonly id="fieldsDef" name="fieldsDef" rows="30"
+                                                        cols="60"></textarea></p>
+        </div>
+
+        <div class="monoFlex">
+            <p>MAPPER<p>
+            <p><label for="mapper"></label><textarea readonly id="mapper" name="fieldsDef" rows="30"
+                                                     cols="60"></textarea></p>
+        </div>
+    </div>
+</body>
+</html>
